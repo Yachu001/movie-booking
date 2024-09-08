@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block start %}
+	<style>
+		body { background-color: #f5f5f5; }
+		.nav-wrapper { background-color: #ffc107; }
+		.brand-logo { margin-left: 20px; margin-top: -1%; }
+		.container { margin-top: 20px; }
+		.card { margin: 10px; width: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+		.card-title { font-size: 1.2rem; color: #333; }
+		.range-field { padding: 20px 0; }
+		.input-field { margin-bottom: 20px; }
+		.gfg { margin-left: 40%; font-size: 45px; font-weight: 700; color: green; }
+		.card-content { text-align: center; }
+		#web { margin-left: 85%; font-size: 20px; font-weight: bold; padding: 5px 20px; border-radius: 9px; background-color: rgb(235, 100, 100); }
+		.JT { margin-top: -10%; font-size: 23px; color: black; font-weight: 400; }
+		.ex { margin-top: 2%; }
+		#oooo { background-color: red; margin-left: 1600px; }
+		.ex23 { font-size: 17px; }
+		.gfg1 { color: rgb(78, 71, 71); font-size: 25px; font-weight: bold; }
+		.gfgd { color: gray; }
+		.btn { padding: 0px 10px; font-weight: bold; }
+	</style>
+    <div class="container">
+		<div class="row">
+			<div class="col m4 ex">
+				<label for="price"><h3 class="JT"><i class="fas fa-clock"></i> Short By Price : </h3> </label>
+				<p class="range-field">
+					<input type="range" onchange="getMovies()" id="price" min="100" max="10000" value="10" > 
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row" id="show_movies_here">
+			{% for i in movies %}
+			<div class="card " style="width: 18rem;">
+				<div class="card-body p-3">
+				  <h5 class="card-title p-3">  {{ i.movie_name }}</h5>
+				  <h6 class="card-subtitle mb-2 text-muted">  {{ i.genres }}</h6>
+				  <p class="card-text">  {{ i.movie_description }}</p>
+				  <p class="card-text">  {{ i.price }}</p>
+				  <a href="#" class="btn btn-primary">Book</a>
+				</div>
+			  </div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}
